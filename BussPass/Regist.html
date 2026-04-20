@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>User Register - Bus Pass System</title>
+    <link rel="stylesheet" href="rstyle.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+<h1>Bus Pass Generation System</h1><br>
+    <div class="register-container">
+        <form class="register-form" action="RegistCheck.php" method="POST">
+            <h2>User Registration</h2>
+            <p>Please enter your ID and password to get registered to bus pass account.</p>
+            <div class="input-group">
+				<label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+				
+                <label for="user_id">User ID / Email</label>
+                <input type="email" id="user_id" name="email_id" oninput="checkEmail();" required>
+            </div>
+            <p id="errorem" style="color:red;" class="error"></p>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" oninput="checkPassword();" required>
+            </div>
+			 <div class="input-group">
+                <label for="password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" oninput="checkPassword();" required>
+            </div>
+            <div>
+            <p id="error" style="color:red;" class="error"></p>
+            </div>
+            <button type="submit" name="rbtn">Register</button>
+            <div class="form-footer">
+                <span>Already have an account? <a href="loginFront.php">Login here</a></span>
+            </div>
+        </form>
+    </div>
+    <script>
+/*function validatePassword() {
+    let pass = document.getElementById("password").value;
+    let confirmPass = document.getElementById("confirm_password").value;
+
+    if (pass !== confirmPass) {
+        document.getElementById("error").innerText = "Passwords do not match!";
+        return false; // stop form submission
+    }
+    return true;
+}*/
+function checkEmail() {
+    let email = document.getElementById("user_id").value;
+    let error = document.getElementById("errorem");
+
+    if (email === "") {
+        error.innerText = "";
+        return;
+    }
+
+   if (email.includes("@")) {
+        error.innerText = "";
+    } else {
+        error.style.color = "red";
+        error.innerText = "Email must contain @ ";
+    }
+}
+
+function checkPassword() {
+    let pass = document.getElementById("password").value;
+    let confirmPass = document.getElementById("confirm_password").value;
+    let error = document.getElementById("error");
+
+    if (confirmPass === "") {
+        error.innerText = "";
+        return;
+    }
+
+    if (pass === confirmPass) {
+        error.style.color = "green";
+        error.innerText = "Passwords match ";
+    } else {
+        error.style.color = "red";
+        error.innerText = "Passwords do not match!";
+    }
+}
+
+</script>
+</body>
+</html>

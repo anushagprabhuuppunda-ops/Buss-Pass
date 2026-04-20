@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Pass Status</title>
+    <style>
+        body { 
+font-family: Arial; display: flex;background-color:#87CEEB; justify-content: center; padding-top: 50px;
+ }
+ .container {
+ width: 350px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; background-color:#FFC0CB;
+}
+ input[type="text"] { width: 100%; padding: 10px; margin-top: 10px; }
+ button { 
+width: 100%; padding: 10px; margin-top: 10px; background: #000080; color: white; border: none; 
+}
+ </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bus Pass Status</h2>
+        <form action="adminCheckStatus.php" method="POST">
+		<label for="passid">Pass ID:<label>
+            <input type="text" name="pass_num" placeholder="Enter Pass Number" required>
+            <button type="submit">Check Status</button>
+        </form>
+    </div>
+</body>
+</html>
