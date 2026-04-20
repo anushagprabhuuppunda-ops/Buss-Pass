@@ -8,7 +8,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] !== TRUE){
 
 $conn = mysqli_connect("localhost","root","","buspass");
 
-// 🔴 SAFE SESSION
+
 $email = $_SESSION['admin_em']  ?? '';
 $username = $_SESSION['username'] ?? '';
 // get user data safely
@@ -27,7 +27,7 @@ if(!$result || mysqli_num_rows($result) == 0){
 
 $row = mysqli_fetch_assoc($result);
 
-// 🔵 UPDATE LOGIC
+
 if(isset($_POST['update'])){
     $newUsername = $_POST['username'];
     $newemail = $_POST['email'];
